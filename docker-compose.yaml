@@ -1,0 +1,21 @@
+version: '3'
+
+volumes:
+  postgres_data:
+
+services:
+  bot:
+    build: /
+    restart: always
+    env_file:
+      - .env.dev
+  db:
+    image: postgres:12-alpine
+    restart: always
+    env_file:
+      - .env.db.exapmle
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # This is optional, not necessary
+
+
